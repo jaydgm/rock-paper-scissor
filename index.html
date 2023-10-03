@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, Paper, Scissor Game</title>
 </head>
 <body>
     <script>
+    let playerScore = 0;
+    let compScore = 0;
+
         function getComputerChoice() {
             const computerPick = ['rock', 'paper', 'scissors']
             return computerPick[Math.floor(Math.random()*computerPick.length)];
@@ -16,25 +19,40 @@
             let lowercasePS = playerSelection.toLowerCase();
             let lowercaseCS = computerSelection.toLowerCase();
             if (lowercasePS === lowercaseCS) {
-                return 'its a tie! you both picked ${lowercasePS}';
+                return 'its a tie!';
             } else if (lowercasePS === 'rock' && lowercaseCS === 'scissors') {
-                return 'you win! rock beats scissors';
+                playerScore++;
+                return 'player wins! player has ' + playerScore + ' points';
             } else if (lowercasePS === 'scissors' && lowercaseCS === 'paper') {
-                return 'you win! scissors beats paper';
+                playerScore++;
+                return 'player wins! player has ' + playerScore + ' points';
             } else if (lowercasePS === 'paper' && lowercaseCS === 'rock') {
-                return 'you win! paper beats rock'
-            } else if (lowercasePS === 'rock' && lowercaseCS === 'paper') {
-                return 'you lose! paper beats rock';
-            } else if (lowercasePS === 'scissors' && lowercaseCS === 'rock') {
-                return 'you lose! rock beats scissors';
-            } else if (lowercasePS === 'paper' && lowercaseCS === 'scissors') {
-                return 'you lose! scissors beats paper';
+                playerScore++;
+                return 'player wins! player has ' + playerScore + ' points';
+            } else {
+                compScore++;
+                return 'computer wins! computer has ' + compScore + ' points';
             }
         }
- 
-        const playerSelection = prompt('Choose rock, paper, or scissors');
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+
+        function game () {
+            for (let i = 0; i < 5; i++) {
+                const playerSelection = prompt('Choose rock, paper, or scissors');
+                const computerSelection = getComputerChoice();
+                console.log(playRound(playerSelection,computerSelection,playerScore,compScore));
+                if (i === 4) {
+                    if (playerScore > compScore) {
+                        return 'Player wins!'
+                    } else if (compScore > playerScore) {
+                        return 'Computer wins!'
+                    }  else {
+                        return 'its a tie!'
+                    }
+                }
+            }  
+
+        }
+        console.log(game());
     </script>
 </body>
 </html>
