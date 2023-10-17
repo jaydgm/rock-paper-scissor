@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissor Game</title>
+    <script src="rps-ui.js" defer></script>
 </head>
 <body>
     <script>
@@ -40,26 +41,13 @@
         }
         // initiates a game of R.P.S, can choose how many rounds to play
         function game () {
-            //in this case, game will run for 5 rounds
-            for (let i = 0; i < 5; i++) {
-                // ask for input from player
-                const playerSelection = prompt('Choose rock, paper, or scissors');
-                // get random computer input from getComputerChoice()
-                const computerSelection = getComputerChoice();
-                console.log(playRound(playerSelection,computerSelection,playerScore,compScore));
-                // once round 5 has ended, compare scores
-                if (i === 4) {
-                    if (playerScore > compScore) {
-                        return 'Player wins!'
-                    } else if (compScore > playerScore) {
-                        return 'Computer wins!'
-                    }  else {
-                        return 'its a tie!'
-                    }
-                }
+            
+            // ask for input from player
+            const playerSelection = prompt('Choose rock, paper, or scissors');
+            // get random computer input from getComputerChoice()
+            const computerSelection = getComputerChoice();
+            console.log(playRound(playerSelection,computerSelection,playerScore,compScore));
             }  
-
-        }
         console.log(game());
     </script>
 </body>
