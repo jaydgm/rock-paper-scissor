@@ -1,5 +1,12 @@
 let playerScore = 0;
 let compScore = 0;
+    const rock = document.querySelector('button[value='rock']');
+    const paper = document.querySelector('button[value='paper']');
+    const scissor = document.querySelector('button[value='scissor']');
+    
+    
+        
+    });
     // chooses rock/paper/scissor at random
     function getComputerChoice() {
         const computerPick = ['rock', 'paper', 'scissors']
