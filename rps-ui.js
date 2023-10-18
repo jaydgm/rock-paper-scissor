@@ -4,16 +4,21 @@ const rock = document.querySelector('button[value="rock"]');
 const paper = document.querySelector('button[value="paper"]');
 const scissor = document.querySelector('button[value="scissor"]');
 const result = document.querySelector('#result');
+const finalResult = document.querySelector('#finalResult');
     
 rock.addEventListener('click',function(){
     playRound(`${rock.value}`);
+    getScore();
 });
 paper.addEventListener('click',function(){
     playRound(`${paper.value}`);
+    getScore();
 });
 scissor.addEventListener('click',function(){
     playRound(`${scissor.value}`);
+    getScore();
 }); 
+
 // chooses rock/paper/scissor at random
 function getComputerChoice() {
     const computerPick = ['rock', 'paper', 'scissors']
@@ -43,3 +48,13 @@ function getComputerChoice() {
             return result.textContent = 'computer wins! computer has points';
         }
     }
+
+// checks score after 5 points
+function getScore() {
+    finalResult.textContent = `Player Score: ${playerScore} Computer Score: ${compScore}`;
+    if (playerScore === 5) {
+        return finalResult.textContent = `You Won ${playerScore} : ${compScore}`; 
+    } else if (compScore === 5) {
+        return finalResult.textContent = `You Lose ${playerScore} : ${compScore}`;
+    }
+}
