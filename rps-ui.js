@@ -1,17 +1,24 @@
 let playerScore = 0;
 let compScore = 0;
-    const rock = document.querySelector('button[value='rock']');
-    const paper = document.querySelector('button[value='paper']');
-    const scissor = document.querySelector('button[value='scissor']');
+const rock = document.querySelector('button[value="rock"]');
+const paper = document.querySelector('button[value="paper"]');
+const scissor = document.querySelector('button[value="scissor"]');
+const computerSelection = getComputerChoice();
     
-    
-        
-    });
-    // chooses rock/paper/scissor at random
-    function getComputerChoice() {
-        const computerPick = ['rock', 'paper', 'scissors']
-        return computerPick[Math.floor(Math.random()*computerPick.length)];
-    }
+rock.addEventListener('click',function(){
+    console.log(playRound(rock.value));
+});
+paper.addEventListener('click',function(){
+    console.log(playRound(paper.value));
+});
+scissor.addEventListener('click',function(){
+    console.log(playRound(scissor.value));
+}); 
+// chooses rock/paper/scissor at random
+function getComputerChoice() {
+    const computerPick = ['rock', 'paper', 'scissors']
+    return computerPick[Math.floor(Math.random()*computerPick.length)];
+}
     // initiates one round of R.P.S
     function playRound(playerSelection, computerSelection) {
         // turns all input to lowercase so that no error when comparing
@@ -41,8 +48,9 @@ let compScore = 0;
         
         // ask for input from player
         const playerSelection = prompt('Choose rock, paper, or scissors');
-        // get random computer input from getComputerChoice()
         const computerSelection = getComputerChoice();
+        // get random computer input from getComputerChoice()
         console.log(playRound(playerSelection,computerSelection,playerScore,compScore));
         }  
-    console.log(game());
+
+    // console.log(game());
