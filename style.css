@@ -1,14 +1,21 @@
-body {
-    display: flex;
-    justify-content: center;
-    min-height: 500px;
-    min-width: 500px;
-}
-
 
 .container {
     display: flex;
+    justify-content: center;
     align-items: center;
+    min-height: 500px;
+    min-width: 500px;
+    flex-direction: column;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+}
 
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
