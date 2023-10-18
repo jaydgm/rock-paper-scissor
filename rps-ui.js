@@ -5,7 +5,7 @@ let compScore = 0;
 // variable for each selection
 const rock = document.querySelector('button[value="rock"]');
 const paper = document.querySelector('button[value="paper"]');
-const scissor = document.querySelector('button[value="scissor"]');
+const scissors = document.querySelector('button[value="scissors"]');
 // variables for current result
 const result = document.querySelector('#result');
 // variable for final result to X amount of pts
@@ -20,12 +20,12 @@ paper.addEventListener('click',function(){
     playRound(`${paper.value}`);
     getScore();
 });
-scissor.addEventListener('click',function(){
-    playRound(`${scissor.value}`);
+scissors.addEventListener('click',function(){
+    playRound(`${scissors.value}`);
     getScore();
 }); 
 
-// chooses rock/paper/scissor at random
+// chooses rock/paper/scissors at random
 function getComputerChoice() {
     const computerPick = ['rock', 'paper', 'scissors']
     return computerPick[Math.floor(Math.random()*computerPick.length)];
