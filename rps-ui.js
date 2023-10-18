@@ -10,6 +10,10 @@ const scissors = document.querySelector('button[value="scissors"]');
 const result = document.querySelector('#result');
 // variable for final result to X amount of pts
 const finalResult = document.querySelector('#finalResult');
+const resetBtn = document.querySelector('#reset');
+
+//refresh page for new game
+reset.addEventListener('click',() => location.reload());
 
 // linking selector buttons to playRound()
 rock.addEventListener('click',function(){
